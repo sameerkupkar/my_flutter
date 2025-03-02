@@ -4,7 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.chooseAnswers});
+  const ResultsScreen(
+      {super.key,
+      required this.chooseAnswers,
+      required this.onSelectRestartQuiz});
+
+  final void Function() onSelectRestartQuiz;
 
   final List<String> chooseAnswers;
 
@@ -51,7 +56,8 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            TextButton(onPressed: () {}, child: Text('ReSatart Quiz!')),
+            TextButton(
+                onPressed: onSelectRestartQuiz, child: Text('ReSatart Quiz!')),
           ],
         ),
       ),
